@@ -53,6 +53,7 @@ class ListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      physics: BouncingScrollPhysics(),
         itemCount: _data.length,
         itemBuilder: (BuildContext context, int position) {
 //          Below 2 lines required when using ListView.builder , when using ListView.separated this extra problem is removed
@@ -73,7 +74,8 @@ class ListViewWidget extends StatelessWidget {
               _showOnTap(context, "${_data[index]['title']}");
             },
           );
-        }, separatorBuilder: (BuildContext context, int index) {return Divider();},
+        },
+      separatorBuilder: (BuildContext context, int index) {return Divider();},
     );
   }
 }
